@@ -31,8 +31,8 @@ AND R1, R2, R3        // R1 := R2 & R3
 ORR R1, R2, R3        // R1 := R2 | R3
 NOT R1, R2            // R1 := ~R2 
 
-LES R1, R2, R3        // R1 := (R2 < R3) ? R2 : R3
-GTR R1, R2, R3        // R1 := (R2 > R3) ? R2: R3o
+LES R1, R2, R3        // R1 := (R2 < R3) ? 1 : 0
+GTR R1, R2, R3        // R1 := (R2 > R3) ? 1 : 0
 
 # Branch and jump instructions
 JEZ R1, label         // Jump to label if R1 == 0
