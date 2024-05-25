@@ -12,15 +12,12 @@ Furthermore, an assembler has been provided to generate the machine code from th
 
 ## Instruction set architecture (ISA)
 
-16 registers (R0 to R15) with a special register R0 which is always zero.
-
 ```
-# Load and store instructions
+# Move, load, and store instructions
+MOV R1, R2            // R1 := R2
+MVI R1, 123           // R1 := 123. 123 in 16-bit immediate value
 LOD R1, R2, 123       // R1 := Memory(R2 + 123). 123 in 16-bits
 STR R1, R2, -2        // Memory(R2 - 2) := R1. -2 in 16-bits
-
-Note: R0 can be used to store a value to/from a specific address.
-STR R1, R0, 10        // Memory(0 + 10) := R1
 
 # ALU instructions
 ADD R1, R2, R3        // R1 := R2 + R3
