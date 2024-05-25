@@ -20,6 +20,9 @@ MVI R3, 1
   MVI R2, 4
   LOD R2, R2, 3 // R2 = memory(7) = 7
 
+  MVI R4, 3
+  LOD R4, R4, -2 // R4 = memory(1) = 1
+
   MVI R3, 5
   SUB R1, R1, R3
   JNZ R1, error
@@ -27,6 +30,10 @@ MVI R3, 1
   MVI R3, 7
   SUB R2, R2, R3
   JNZ R2, error
+
+  MVI R3, 1
+  SUB R4, R4, R3
+  JNS R4, error
 
   // R1 = 0 (success)
   HLT
