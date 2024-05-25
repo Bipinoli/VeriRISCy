@@ -1,7 +1,7 @@
 # VeriRISCy
 
 The processor has been designed for simplicity of implementation.
-- 32-bit address space
+- 32-bit word size
 - 16 registers (R0 to R15)
 - Harvard architecture (separate memory for instruction & data)
 - Instruction pipelining
