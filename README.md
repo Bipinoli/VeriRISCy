@@ -42,6 +42,17 @@ JMP label             // Jump to label
 # End program instruction
 HLT
 ```
+### Instruction encoding
+TODO:
+
+### Processor pipeline architecture
+TODO:
+
+### Note on Pipelining hazards
+TODO:
+
+
+
 
 
 
