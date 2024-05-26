@@ -136,14 +136,14 @@ module processor(clock1, clock2);
         GTR: begin ex_has_result <= 1; ex_alu_result <= (id_ra_val > id_rb_val) ? 1 : 0; end
         JEZ: begin
           ex_has_result <= 0;
-          if (id_ra_val == 0) begin
+          if (id_rdest_val == 0) begin
             if_next_branch_taken <= 1;
             if_next_pc <= id_pc + id_immediate; // pc = pc + offset
           end
         end
         JNZ: begin
           ex_has_result <= 0;
-          if (id_ra_val != 0) begin
+          if (id_rdest_val != 0) begin
             if_next_branch_taken <= 1;
             if_next_pc <= id_pc + id_immediate; // pc = pc + offset
           end
