@@ -23,7 +23,6 @@ MVI R2, 143
   ORR R5, R5, R5
   ORR R5, R5, R5
 
-
   SUB R3, R1, R2
 
   ORR R5, R5, R5

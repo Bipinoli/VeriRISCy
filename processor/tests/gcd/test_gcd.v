@@ -84,6 +84,7 @@ computer.instruction_memory[22]=4026597356;
 computer.instruction_memory[23]=1628569600;
 computer.instruction_memory[24]=4026597354;
 computer.instruction_memory[25]=0;
+
 */
 
 module test_gcd;
@@ -105,37 +106,32 @@ end
 
 initial 
 begin
-computer.instruction_memory[0]=553648206;
-computer.instruction_memory[1]=570425487;
-computer.instruction_memory[2]=2505375744;
-computer.instruction_memory[3]=2505375744;
-computer.instruction_memory[4]=2505375744;
-computer.instruction_memory[5]=2505375744;
-computer.instruction_memory[6]=2505375744;
-computer.instruction_memory[7]=1662124032;
-computer.instruction_memory[8]=2505375744;
-computer.instruction_memory[9]=2505375744;
-computer.instruction_memory[10]=2505375744;
-computer.instruction_memory[11]=2505375744;
-computer.instruction_memory[12]=2505375744;
-computer.instruction_memory[13]=3539992593;
-computer.instruction_memory[14]=3272736768;
-computer.instruction_memory[15]=2505375744;
-computer.instruction_memory[16]=2505375744;
-computer.instruction_memory[17]=2505375744;
-computer.instruction_memory[18]=2505375744;
-computer.instruction_memory[19]=2505375744;
-computer.instruction_memory[20]=3808428040;
-computer.instruction_memory[21]=2505375744;
-computer.instruction_memory[22]=2505375744;
-computer.instruction_memory[23]=2505375744;
-computer.instruction_memory[24]=2505375744;
-computer.instruction_memory[25]=2505375744;
-computer.instruction_memory[26]=1646329856;
-computer.instruction_memory[27]=4026597351;
-computer.instruction_memory[28]=1628569600;
-computer.instruction_memory[29]=4026597349;
-computer.instruction_memory[30]=0;
+  computer.instruction_memory[0]=553648206;
+  computer.instruction_memory[1]=570425487;
+  computer.instruction_memory[2]=2505375744;
+  computer.instruction_memory[3]=2505375744;
+  computer.instruction_memory[4]=2505375744;
+  computer.instruction_memory[5]=2505375744;
+  computer.instruction_memory[6]=2505375744;
+  computer.instruction_memory[7]=1662124032;
+  computer.instruction_memory[8]=2505375744;
+  computer.instruction_memory[9]=2505375744;
+  computer.instruction_memory[10]=2505375744;
+  computer.instruction_memory[11]=2505375744;
+  computer.instruction_memory[12]=2505375744;
+  computer.instruction_memory[13]=3539992588;
+  computer.instruction_memory[14]=3272736768;
+  computer.instruction_memory[15]=2505375744;
+  computer.instruction_memory[16]=2505375744;
+  computer.instruction_memory[17]=2505375744;
+  computer.instruction_memory[18]=2505375744;
+  computer.instruction_memory[19]=2505375744;
+  computer.instruction_memory[20]=3808428035;
+  computer.instruction_memory[21]=1646329856;
+  computer.instruction_memory[22]=4026597356;
+  computer.instruction_memory[23]=1628569600;
+  computer.instruction_memory[24]=4026597354;
+  computer.instruction_memory[25]=0;
 end
 
 initial
