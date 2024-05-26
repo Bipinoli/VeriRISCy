@@ -71,21 +71,22 @@ module processor(clock1, clock2);
 
   // states
   reg [3:0] id_opcode, id_rdest, id_ra, id_rb;
-  reg [15:0] id_immediate; 
-  reg [31:0] id_pc, id_rdest_val, id_ra_val, id_rb_val;
+  reg [31:0] id_pc, id_rdest_val, id_ra_val, id_rb_val, id_immediate;
   reg id_invalid; // due to branch jump or program being halted, the instruction in this stage of pipeline can be invalid
 
   always @ (posedge clock2)
   begin 
     // instruction decoding
     id_opcode <= if_ir[31:28];
-    id_immediate <= if_ir[15:0];
     id_rdest <= if_ir[27:24];
     id_ra <= if_ir[23:20];
     id_rb <= if_ir[19:16];
     id_rdest_val <= register_bank[if_ir[27:24]]; // register prefetching
     id_ra_val <= register_bank[if_ir[23:20]];
     id_rb_val <= register_bank[if_ir[19:16]];
+    // 16-bit signed immediate number need to be converted to 32-bits
+    // for that the signed bit needs to be copied as 16-MSBs
+    id_immediate <= {16{if_ir[15]}, {if_ir[15:0]}};
 
     id_pc <= if_pc;
     id_invalid <= (if_branch_taken | if_halted) ? 1: 0;
@@ -98,8 +99,7 @@ module processor(clock1, clock2);
 
   // states
   reg [3:0] ex_opcode, ex_rdest, ex_ra, ex_rb;
-  reg [31:0] ex_alu_result, ex_pc, ex_rdest_val, ex_ra_val, ex_rb_val;
-  reg [15:0] ex_immediate;
+  reg [31:0] ex_alu_result, ex_pc, ex_rdest_val, ex_ra_val, ex_rb_val, ex_immediate;
   reg ex_invalid, ex_has_result;
 
 
@@ -158,8 +158,7 @@ module processor(clock1, clock2);
 
   // states
   reg [3:0] ma_opcode, ma_rdest, ma_ra, ma_rb;
-  reg [31:0] ma_alu_result, ma_ra_val;
-  reg [15:0] ma_immediate;
+  reg [31:0] ma_alu_result, ma_ra_val, ma_immediate;
   reg ma_invalid, ma_has_result;
   
   always @ (posedge clock2)
