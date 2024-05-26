@@ -48,6 +48,7 @@ def opcode(code):
 
 def register(reg):
     # reg = R0 or R1 or .... R15
+    return
 
 
 def assembler(assembly_source):
