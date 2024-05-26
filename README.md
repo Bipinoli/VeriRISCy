@@ -5,7 +5,7 @@ The processor has been designed for simplicity of implementation.
 - 16 registers (R0 to R15)
 - Harvard architecture (separate memory for instruction & data)
 - Instruction pipelining
-- Register prefetching before decoding
+- Register prefetching while decoding
 - No branch prediction
 
 Furthermore, an assembler has been provided to generate the machine code from the assembly.
