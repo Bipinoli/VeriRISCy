@@ -196,20 +196,25 @@ def assembler(assembly_file):
         for item in instructions
     ]
 
-    print("\n--------- debug info ---------")
+    print("\n" + "-"*27 + "  debug info  " + "-"*27)
     for i, inst in enumerate(instructions):
+        line_num = f"#{i}"
         label = ""
         if i in labels_reverse_map:
             label = ":" + labels_reverse_map[i]
         src = inst['source']
         binary_debug = inst['binary_debug']
+        LINE_NUM_LEN = 5
         LABEL_LEN = 10
         SRC_LEN = 18
+
+        if len(line_num) < LINE_NUM_LEN:
+            line_num = ' ' * (LINE_NUM_LEN - len(line_num)) + line_num
         if len(label) < LABEL_LEN:
             label = ' ' * (LABEL_LEN - len(label)) + label
         if len(src) < SRC_LEN:
             src = src + ' ' * (SRC_LEN - len(src))
-        print(f"{label}  {src}  {binary_debug}")
+        print(f"{line_num} {label}  {src}  {binary_debug}")
 
     print("\n----- assembled instructions -------")
     for inst in instructions:
