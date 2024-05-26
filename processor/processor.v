@@ -61,9 +61,7 @@ module processor(clock1, clock2);
       if_branch_taken = if_next_branch_taken;
       if (if_branch_taken == 1)
       begin
-        if_ir = instruction_memory[if_pc];
         if_next_branch_taken = 0;
-        if_next_pc = if_pc + 1;
       end
       else 
       begin
