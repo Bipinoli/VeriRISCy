@@ -40,7 +40,31 @@ JMP label             // Jump to label
 HLT
 ```
 ### Instruction encoding
-TODO:
+```
+  __________________________________________________________________
+ | opcode | r_dest |  r_a  |  r_b  |        immediate val           |
+  ------------------------------------------------------------------
+    4-bit    4-bit    4-bit   4-bit            16-bit
+    <------------------    32-bit  --------------------------------->
+
+
+examples:
+  AND R1, R2, R3
+  --------------
+  opcode:    AND (4-bit)
+  r_dest:    R1  (4-bit)
+  r_a:       R2  (4-bit)
+  r_b:       R3  (4-bit)
+  immediate: 0 (not used)
+
+
+  MVI R1, 123
+  --------------
+  opcode:     MVI (4-bit)
+  r_dest:     R1  (4-bit)
+  immediate:  123 (16-bit)
+  r_a, r_b:   0 (not used)
+```
 
 ### Processor pipeline architecture
 TODO:
