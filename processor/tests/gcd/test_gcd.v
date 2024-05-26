@@ -1,80 +1,89 @@
 /*
-Assembling gcd/gcd.s ---
+Assembling gcd.s ---
 
 ---------------------------  debug info  ---------------------------
    #0             MVI R1, 78          0010 0001 0000 0000 0000000001001110
    #1             MVI R2, 143         0010 0010 0000 0000 0000000010001111
-   #2      :loop  ORR R1, R1, R1      1001 0001 0001 0001 0000000000000000
-   #3             ORR R1, R1, R1      1001 0001 0001 0001 0000000000000000
-   #4             ORR R1, R1, R1      1001 0001 0001 0001 0000000000000000
-   #5             ORR R1, R1, R1      1001 0001 0001 0001 0000000000000000
-   #6             SUB R3, R1, R2      0110 0011 0001 0010 0000000000000000
-   #7             ORR R1, R1, R1      1001 0001 0001 0001 0000000000000000
-   #8             ORR R1, R1, R1      1001 0001 0001 0001 0000000000000000
-   #9             ORR R1, R1, R1      1001 0001 0001 0001 0000000000000000
-  #10             ORR R1, R1, R1      1001 0001 0001 0001 0000000000000000
-  #11             JEZ R3, end         1101 0011 0000 0000 0000000000001011
-  #12             GTR R3, R1, R2      1100 0011 0001 0010 0000000000000000
-  #13             ORR R1, R1, R1      1001 0001 0001 0001 0000000000000000
-  #14             ORR R1, R1, R1      1001 0001 0001 0001 0000000000000000
-  #15             ORR R1, R1, R1      1001 0001 0001 0001 0000000000000000
-  #16             ORR R1, R1, R1      1001 0001 0001 0001 0000000000000000
-  #17             JNZ R3, greater     1110 0011 0000 0000 0000000000000011
-  #18             SUB R2, R2, R1      0110 0010 0010 0001 0000000000000000
-  #19             JMP loop            1111 0000 0000 0000 1111111111101111
-  #20   :greater  SUB R1, R1, R2      0110 0001 0001 0010 0000000000000000
-  #21             JMP loop            1111 0000 0000 0000 1111111111101101
-  #22       :end  HLT                 0000 0000 0000 0000 0000000000000000
+   #2      :loop  ORR R5, R5, R5      1001 0101 0101 0101 0000000000000000
+   #3             ORR R5, R5, R5      1001 0101 0101 0101 0000000000000000
+   #4             ORR R5, R5, R5      1001 0101 0101 0101 0000000000000000
+   #5             ORR R5, R5, R5      1001 0101 0101 0101 0000000000000000
+   #6             ORR R5, R5, R5      1001 0101 0101 0101 0000000000000000
+   #7             SUB R3, R1, R2      0110 0011 0001 0010 0000000000000000
+   #8             ORR R5, R5, R5      1001 0101 0101 0101 0000000000000000
+   #9             ORR R5, R5, R5      1001 0101 0101 0101 0000000000000000
+  #10             ORR R5, R5, R5      1001 0101 0101 0101 0000000000000000
+  #11             ORR R5, R5, R5      1001 0101 0101 0101 0000000000000000
+  #12             ORR R5, R5, R5      1001 0101 0101 0101 0000000000000000
+  #13             JEZ R3, end         1101 0011 0000 0000 0000000000001100
+  #14             GTR R3, R1, R2      1100 0011 0001 0010 0000000000000000
+  #15             ORR R5, R5, R5      1001 0101 0101 0101 0000000000000000
+  #16             ORR R5, R5, R5      1001 0101 0101 0101 0000000000000000
+  #17             ORR R5, R5, R5      1001 0101 0101 0101 0000000000000000
+  #18             ORR R5, R5, R5      1001 0101 0101 0101 0000000000000000
+  #19             ORR R5, R5, R5      1001 0101 0101 0101 0000000000000000
+  #20             JNZ R3, greater     1110 0011 0000 0000 0000000000000011
+  #21             SUB R2, R2, R1      0110 0010 0010 0001 0000000000000000
+  #22             JMP loop            1111 0000 0000 0000 1111111111101100
+  #23   :greater  SUB R1, R1, R2      0110 0001 0001 0010 0000000000000000
+  #24             JMP loop            1111 0000 0000 0000 1111111111101010
+  #25       :end  HLT                 0000 0000 0000 0000 0000000000000000
 
 ----- assembled instructions -------
 553648206
 570425487
-2433810432
-2433810432
-2433810432
-2433810432
+2505375744
+2505375744
+2505375744
+2505375744
+2505375744
 1662124032
-2433810432
-2433810432
-2433810432
-2433810432
-3539992587
+2505375744
+2505375744
+2505375744
+2505375744
+2505375744
+3539992588
 3272736768
-2433810432
-2433810432
-2433810432
-2433810432
+2505375744
+2505375744
+2505375744
+2505375744
+2505375744
 3808428035
 1646329856
-4026597359
+4026597356
 1628569600
-4026597357
+4026597354
 0
 
 ----- generated code -------
 computer.instruction_memory[0]=553648206;
 computer.instruction_memory[1]=570425487;
-computer.instruction_memory[2]=2433810432;
-computer.instruction_memory[3]=2433810432;
-computer.instruction_memory[4]=2433810432;
-computer.instruction_memory[5]=2433810432;
-computer.instruction_memory[6]=1662124032;
-computer.instruction_memory[7]=2433810432;
-computer.instruction_memory[8]=2433810432;
-computer.instruction_memory[9]=2433810432;
-computer.instruction_memory[10]=2433810432;
-computer.instruction_memory[11]=3539992587;
-computer.instruction_memory[12]=3272736768;
-computer.instruction_memory[13]=2433810432;
-computer.instruction_memory[14]=2433810432;
-computer.instruction_memory[15]=2433810432;
-computer.instruction_memory[16]=2433810432;
-computer.instruction_memory[17]=3808428035;
-computer.instruction_memory[18]=1646329856;
-computer.instruction_memory[19]=4026597359;
-computer.instruction_memory[20]=1628569600;
-computer.instruction_memory[21]=4026597357;
-computer.instruction_memory[22]=0;
+computer.instruction_memory[2]=2505375744;
+computer.instruction_memory[3]=2505375744;
+computer.instruction_memory[4]=2505375744;
+computer.instruction_memory[5]=2505375744;
+computer.instruction_memory[6]=2505375744;
+computer.instruction_memory[7]=1662124032;
+computer.instruction_memory[8]=2505375744;
+computer.instruction_memory[9]=2505375744;
+computer.instruction_memory[10]=2505375744;
+computer.instruction_memory[11]=2505375744;
+computer.instruction_memory[12]=2505375744;
+computer.instruction_memory[13]=3539992588;
+computer.instruction_memory[14]=3272736768;
+computer.instruction_memory[15]=2505375744;
+computer.instruction_memory[16]=2505375744;
+computer.instruction_memory[17]=2505375744;
+computer.instruction_memory[18]=2505375744;
+computer.instruction_memory[19]=2505375744;
+computer.instruction_memory[20]=3808428035;
+computer.instruction_memory[21]=1646329856;
+computer.instruction_memory[22]=4026597356;
+computer.instruction_memory[23]=1628569600;
+computer.instruction_memory[24]=4026597354;
+computer.instruction_memory[25]=0;
 */
 
 module test_gcd;
@@ -96,29 +105,37 @@ end
 
 initial 
 begin
-  computer.instruction_memory[0]=553648206;
-  computer.instruction_memory[1]=570425487;
-  computer.instruction_memory[2]=2433810432;
-  computer.instruction_memory[3]=2433810432;
-  computer.instruction_memory[4]=2433810432;
-  computer.instruction_memory[5]=2433810432;
-  computer.instruction_memory[6]=1662124032;
-  computer.instruction_memory[7]=2433810432;
-  computer.instruction_memory[8]=2433810432;
-  computer.instruction_memory[9]=2433810432;
-  computer.instruction_memory[10]=2433810432;
-  computer.instruction_memory[11]=3539992587;
-  computer.instruction_memory[12]=3272736768;
-  computer.instruction_memory[13]=2433810432;
-  computer.instruction_memory[14]=2433810432;
-  computer.instruction_memory[15]=2433810432;
-  computer.instruction_memory[16]=2433810432;
-  computer.instruction_memory[17]=3808428035;
-  computer.instruction_memory[18]=1646329856;
-  computer.instruction_memory[19]=4026597359;
-  computer.instruction_memory[20]=1628569600;
-  computer.instruction_memory[21]=4026597357;
-  computer.instruction_memory[22]=0;
+computer.instruction_memory[0]=553648206;
+computer.instruction_memory[1]=570425487;
+computer.instruction_memory[2]=2505375744;
+computer.instruction_memory[3]=2505375744;
+computer.instruction_memory[4]=2505375744;
+computer.instruction_memory[5]=2505375744;
+computer.instruction_memory[6]=2505375744;
+computer.instruction_memory[7]=1662124032;
+computer.instruction_memory[8]=2505375744;
+computer.instruction_memory[9]=2505375744;
+computer.instruction_memory[10]=2505375744;
+computer.instruction_memory[11]=2505375744;
+computer.instruction_memory[12]=2505375744;
+computer.instruction_memory[13]=3539992593;
+computer.instruction_memory[14]=3272736768;
+computer.instruction_memory[15]=2505375744;
+computer.instruction_memory[16]=2505375744;
+computer.instruction_memory[17]=2505375744;
+computer.instruction_memory[18]=2505375744;
+computer.instruction_memory[19]=2505375744;
+computer.instruction_memory[20]=3808428040;
+computer.instruction_memory[21]=2505375744;
+computer.instruction_memory[22]=2505375744;
+computer.instruction_memory[23]=2505375744;
+computer.instruction_memory[24]=2505375744;
+computer.instruction_memory[25]=2505375744;
+computer.instruction_memory[26]=1646329856;
+computer.instruction_memory[27]=4026597351;
+computer.instruction_memory[28]=1628569600;
+computer.instruction_memory[29]=4026597349;
+computer.instruction_memory[30]=0;
 end
 
 initial
@@ -129,8 +146,8 @@ end
 
 initial
 begin
-  $monitor("time: %3t  R1: %d R2: %d GCD: %d", $time, computer.register_bank[1], computer.register_bank[2], computer.register_bank[1]);
-  #1000 $finish;
+  $monitor("completed: %1b     X: %3d, Y: %3d     GCD(X,Y): %3d", computer.if_halted, computer.register_bank[1], computer.register_bank[2], computer.register_bank[1]);
+  #5000 $finish;
 end
 
 endmodule

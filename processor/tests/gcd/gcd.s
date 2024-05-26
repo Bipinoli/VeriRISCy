@@ -9,7 +9,7 @@
 // gcd(78, 143) = 13 
 
 // NOTE:
-// ORR R1, R1, R1 is a NOP code to introduce a buffer in pipeline
+// ORR R5, R5, R5 is a NOP code to introduce a buffer in pipeline
 // to avoid data hazard
 
 MVI R1, 78
@@ -17,27 +17,30 @@ MVI R2, 143
 
 :loop
 
-  ORR R1, R1, R1
-  ORR R1, R1, R1
-  ORR R1, R1, R1
-  ORR R1, R1, R1
+  ORR R5, R5, R5
+  ORR R5, R5, R5
+  ORR R5, R5, R5
+  ORR R5, R5, R5
+  ORR R5, R5, R5
 
 
   SUB R3, R1, R2
 
-  ORR R1, R1, R1
-  ORR R1, R1, R1
-  ORR R1, R1, R1
-  ORR R1, R1, R1
+  ORR R5, R5, R5
+  ORR R5, R5, R5
+  ORR R5, R5, R5
+  ORR R5, R5, R5
+  ORR R5, R5, R5
 
   JEZ R3, end
   
   GTR R3, R1, R2
 
-  ORR R1, R1, R1
-  ORR R1, R1, R1
-  ORR R1, R1, R1
-  ORR R1, R1, R1
+  ORR R5, R5, R5
+  ORR R5, R5, R5
+  ORR R5, R5, R5
+  ORR R5, R5, R5
+  ORR R5, R5, R5
 
   JNZ R3, greater
   
