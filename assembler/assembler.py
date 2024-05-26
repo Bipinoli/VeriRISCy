@@ -220,6 +220,10 @@ def assembler(assembly_file):
     for inst in instructions:
         print(inst['instruction'])
 
+    print("\n----- generated code -------")
+    for i, inst in enumerate(instructions):
+        print(f"computer.instruction_memory[{i}]={inst['instruction']};")
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
