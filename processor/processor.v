@@ -36,9 +36,18 @@ module processor(clock1, clock2);
   // ----- instruction fetch (if) stage -----
   
   // states
-  reg [31:0] if_pc, if_ir;
-  reg if_halted, if_branch_taken, if_branched_pc;
-  reg if_next_pc, if_next_branch_taken;
+  reg [31:0] if_pc, if_next_pc, if_ir;
+  reg if_halted, if_branch_taken, if_next_branch_taken;
+
+  initial
+  begin
+    if_halted <= 0;
+    if_next_pc <= 0;
+    if_next_branch_taken <= 0;
+    id_invalid <= 1;
+    ex_invalid <= 1;
+    ma_invalid <= 1;
+  end
   
   always @ (posedge clock1) 
   begin
@@ -46,13 +55,12 @@ module processor(clock1, clock2);
     // so waiting some time to let the branch and halted signals from ex
     // stage come in
     #2;
-    if (if_halted != 0)
+    if (if_halted == 0)
     begin
       if_pc = if_next_pc;
       if_branch_taken = if_next_branch_taken;
       if (if_branch_taken == 1)
       begin
-        if_pc = if_branched_pc;
         if_ir = instruction_memory[if_pc];
         if_next_branch_taken = 0;
         if_next_pc = if_pc + 1;
@@ -86,7 +94,7 @@ module processor(clock1, clock2);
     id_rb_val <= register_bank[if_ir[19:16]];
     // 16-bit signed immediate number need to be converted to 32-bits
     // for that the signed bit needs to be copied as 16-MSBs
-    id_immediate <= {16{if_ir[15]}, {if_ir[15:0]}};
+    id_immediate <= {{16{if_ir[15]}}, {if_ir[15:0]}};
 
     id_pc <= if_pc;
     id_invalid <= (if_branch_taken | if_halted) ? 1: 0;
@@ -108,6 +116,7 @@ module processor(clock1, clock2);
     if (id_invalid == 0) 
     begin
       ex_invalid <= 0;
+      ex_opcode <= id_opcode;
       ex_pc <= id_pc;
       ex_rdest <= id_rdest;
       ex_ra <= id_ra;
