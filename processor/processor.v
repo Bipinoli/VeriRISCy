@@ -1,5 +1,11 @@
 module processor(clock1, clock2);
-  // 2-phase clocks
+  // 2-phase clocks:
+  // - for controlled operations in each pipeline stage
+  // With a single clock activating all stages at once, the successive
+  // pipeline stages can work incorrectly if the input for one stage doesn't
+  // arrive in time from the previous stage.
+  // With 2-phase clocks each adjacent stages will be activated alternately
+  // avoid this scenerio
   input clock1, clock2;
 
   reg [31:0] register_bank [0:15];
@@ -83,6 +89,9 @@ module processor(clock1, clock2);
 
   // states
   reg [31:0] ex_alu_result;
+  reg ex_invalid;
+
+
   always @ (posedge clock1) 
   begin
 
